@@ -75,6 +75,8 @@ paginate(query, opts)
 
 ## Test suite
 
+Be sure you have MongoDb up and running locally, then run
+
     $ npm test
 
 ## License
