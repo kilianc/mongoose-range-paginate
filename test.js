@@ -7,7 +7,6 @@
 var assert = require('chai').assert
   , mongoose = require('mongoose')
   , Schema = mongoose.Schema
-  , async = require('async')
   , fixtures = require('./fixtures')
   , paginate = require('./index')
 
