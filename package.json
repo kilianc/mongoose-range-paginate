@@ -1,0 +1,22 @@
+{
+  "name": "mongoose-paginate",
+  "version": "0.0.1",
+  "description": "Range paginator for mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test.js --reporter=spec"
+  },
+  "keywords": [
+    "paginate",
+    "mongoose",
+    "mongodb"
+  ],
+  "author": "Kilian Ciuffolo",
+  "license": "MIT",
+  "devDependencies": {
+    "async": "^0.9.0",
+    "chai": "^1.9.1",
+    "mocha": "^1.21.0",
+    "mongoose": "^3.8.13"
+  }
+}
