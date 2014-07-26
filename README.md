@@ -18,19 +18,16 @@ function getQuery() {
     .where({ tags: { $in ['foo', 'bar'] } })
 }
 
-paginate(getQuery(), {
-  sort: '-timestamp',
-  limit: 50
-}, function (err, page1) {
-  // page1 ready
+paginate(getQuery(), { sort: '-timestamp', limit: 50 }).exec(function (err, docs) {
+  // first 50 docs ready
 
   paginate(getQuery(), {
     sort: '-timestamp',
     startId: page1._id,
     startKey: page1.timestamp,
-    limit: 50
-  }, function (err, page2) {
-    // page2 ready
+    limit: 10
+  }).exec(function (err, docs) {
+    // next 10 docs ready
   })
 })
 ```
