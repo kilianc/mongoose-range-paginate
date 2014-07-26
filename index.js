@@ -15,9 +15,6 @@ module.exports = function paginate(query, opts) {
   opts = opts || {}
   opts.sort = opts.sort || ''
 
-  var sortKey = opts.sort.replace('-', '')
-  var sortDirection = opts.sort.match(/-/) ? -1 : 1
-
   if ('false' !== opts.limit) {
     query.limit(parseInt(opts.limit) || 10)
   }
@@ -25,7 +22,16 @@ module.exports = function paginate(query, opts) {
   query.sort(opts.sort + ' -_id')
 
   if (!opts.startId) return query
-  if (!opts.startKey && 0 !== opts.startKey) return query
+
+  if (!opts.startKey && 0 !== opts.startKey) {
+    // assume you are sorting by -_id
+    opts.startKey = opts.startId
+  }
+
+  opts.sort = opts.sort || '-_id'
+
+  var sortKey = opts.sort.replace('-', '')
+  var sortDirection = opts.sort.match(/-/) ? -1 : 1
 
   var a = {}, b = {}
 

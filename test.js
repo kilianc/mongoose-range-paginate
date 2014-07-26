@@ -109,6 +109,31 @@ describe('mongoose-paginate', function () {
     })
   })
 
+  it('should support pagination / no sort key', function (done) {
+    var opts = {
+      startId: fixtures[50]._id,
+      startKey: fixtures[50]._id
+    }
+
+    paginate(Model.find(), opts).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.equal(docs[0]._id.toString(), fixtures[49]._id.toString())
+      done()
+    })
+  })
+
+  it('should support pagination / no sort key / no startKey', function (done) {
+    var opts = {
+      startId: fixtures[50]._id
+    }
+
+    paginate(Model.find(), opts).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.equal(docs[0]._id.toString(), fixtures[49]._id.toString())
+      done()
+    })
+  })
+
   it('should support pagination / different sort key', function (done) {
     var opts = {
       sort: '-foo',
