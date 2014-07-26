@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-paginate",
+  "name": "mongoose-range-paginate",
   "version": "0.0.1",
   "description": "Range paginator for mongoose",
   "main": "index.js",

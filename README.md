@@ -1,15 +1,15 @@
-# MongoDb / Mongoose pagination done right
+## MongoDb / Mongoose pagination done right
 
 An utility function to work with ranged pagination, way faster than using `skip()`.
 
 ## Install
 
-    $ npm install mongoose-paginate
+    $ npm install mongoose-range-paginate
 
 ## Example
 
 ```js
-var paginate = require('mongoose-paginate')
+var paginate = require('mongoose-range-paginate')
 
 ...
 
@@ -39,7 +39,7 @@ paginate(getQuery(), {
 
 ```js
 
-var paginate = require('mongoose-paginate')
+var paginate = require('mongoose-range-paginate')
 
 ...
 
