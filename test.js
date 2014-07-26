@@ -85,6 +85,14 @@ describe('mongoose-paginate', function () {
     })
   })
 
+  it('limit should be disabled if we pass "false"', function (done) {
+    paginate(Model.find(), { limit: 'false' }).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.lengthOf(docs, 100)
+      done()
+    })
+  })
+
   it('should support pagination / same sort key', function (done) {
     var opts = {
       sort: '-foo',
@@ -112,6 +120,34 @@ describe('mongoose-paginate', function () {
       if (err) return done(err)
       assert.equal(docs[0]._id.toString(), fixtures[9]._id.toString())
       assert.notEqual(docs[0].foo, fixtures[10].foo)
+      assert.lengthOf(docs, 10)
+      done()
+    })
+  })
+
+  it('should skip pagination / empty string', function (done) {
+    var opts = {
+      startId: '',
+      startKey: ''
+    }
+
+    paginate(Model.find(), opts).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.equal(docs[0]._id.toString(), fixtures[99]._id.toString())
+      assert.lengthOf(docs, 10)
+      done()
+    })
+  })
+
+  it('should skip pagination / null', function (done) {
+    var opts = {
+      startId: null,
+      startKey: null
+    }
+
+    paginate(Model.find(), opts).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.equal(docs[0]._id.toString(), fixtures[99]._id.toString())
       assert.lengthOf(docs, 10)
       done()
     })

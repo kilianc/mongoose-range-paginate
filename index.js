@@ -22,24 +22,25 @@ module.exports = function paginate(query, opts) {
     query.limit(parseInt(opts.limit) || 10)
   }
 
-  if (undefined !== opts.startKey && undefined !== opts.startId) {
-    var a = {}, b ={}
+  query.sort(opts.sort + ' -_id')
 
-    // if there are more with the same sortKey, use _id
-    a[sortKey] = opts.startKey
-    a._id = { $lt: opts.startId }
+  if (!opts.startId) return query
+  if (!opts.startKey && 0 !== opts.startKey) return query
 
-    // or just start with the next sortKey following sortDirection
-    if (-1 === sortDirection) {
-      b[sortKey] = { $lt: opts.startKey }
-    } else {
-      b[sortKey] = { $gt: opts.startKey }
-    }
+  var a = {}, b = {}
 
-    query.where({ $or: [a, b] })
+  // if there are more with the same sortKey, use _id
+  a[sortKey] = opts.startKey
+  a._id = { $lt: opts.startId }
+
+  // or just start with the next sortKey following sortDirection
+  if (-1 === sortDirection) {
+    b[sortKey] = { $lt: opts.startKey }
+  } else {
+    b[sortKey] = { $gt: opts.startKey }
   }
 
-  query.sort(opts.sort + ' -_id')
+  query.where({ $or: [a, b] })
 
   return query
 }
