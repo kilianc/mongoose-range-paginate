@@ -1,6 +1,6 @@
 {
   "name": "mongoose-range-paginate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Range paginator for mongoose",
   "main": "index.js",
   "scripts": {
