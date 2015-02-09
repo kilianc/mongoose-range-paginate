@@ -11,7 +11,11 @@ var assert = require('chai').assert
   , paginate = require('./index')
 
 mongoose.connect('mongodb://127.0.0.1:27017/mp_test')
-var Model = mongoose.model('Model', Schema({ foo: Number, bar: Number }))
+var Model = mongoose.model('Model', Schema({
+  foo: Number,
+  bar: Number,
+  date: Date
+}))
 
 describe('mongoose-paginate', function () {
 
@@ -174,6 +178,55 @@ describe('mongoose-paginate', function () {
       if (err) return done(err)
       assert.equal(docs[0]._id.toString(), fixtures[99]._id.toString())
       assert.lengthOf(docs, 10)
+      done()
+    })
+  })
+
+  it('should sort by dates', function (done) {
+    var opts = {
+      startId: fixtures[1]._id,
+      startKey: fixtures[1].date,
+      sort: 'date'
+    }
+
+    paginate(Model.find(), opts).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.lengthOf(docs, 1)
+      assert.equal(docs[0]._id.toString(), fixtures[0]._id.toString())
+      done()
+    })
+  })
+
+  it('should sort by dates', function (done) {
+    var opts = {
+      startId: fixtures[5]._id.toString(),
+      startKey: fixtures[5].date,
+      sort: '-date'
+    }
+
+    paginate(Model.find(), opts).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.lengthOf(docs, 10)
+
+      assert.equal(docs[0]._id.toString(), fixtures[6]._id.toString())
+      assert.equal(docs[9]._id.toString(), fixtures[15]._id.toString())
+      done()
+    })
+  })
+
+  it('should sort by dates', function (done) {
+    var opts = {
+      startId: fixtures[5]._id.toString(),
+      startKey: new Date(fixtures[5].date),
+      sort: '-date'
+    }
+
+    paginate(Model.find(), opts).exec(function (err, docs) {
+      if (err) return done(err)
+      assert.lengthOf(docs, 10)
+
+      assert.equal(docs[0]._id.toString(), fixtures[6]._id.toString())
+      assert.equal(docs[9]._id.toString(), fixtures[15]._id.toString())
       done()
     })
   })
