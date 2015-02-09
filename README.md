@@ -23,8 +23,8 @@ paginate(getQuery(), { sort: '-timestamp', limit: 50 }).exec(function (err, docs
 
   paginate(getQuery(), {
     sort: '-timestamp',
-    startId: docs._id,
-    startKey: docs.timestamp,
+    startId: docs[49]._id,
+    startKey: docs[49].timestamp,
     limit: 10
   }).exec(function (err, docs) {
     // next 10 docs ready
