@@ -13,18 +13,24 @@ var paginate = require('mongoose-range-paginate')
 
 ...
 
+// use any field name in your model
+var sortKey = 'timestamp'
+
+// DESC because starts with a minus
+var sort = '-' + sortKey
+
 function getQuery() {
   return Posts.find()
     .where({ tags: { $in ['foo', 'bar'] } })
 }
 
-paginate(getQuery(), { sort: '-timestamp', limit: 50 }).exec(function (err, docs) {
+paginate(getQuery(), { sort: sort, limit: 50 }).exec(function (err, docs) {
   // first 50 docs ready
 
   paginate(getQuery(), {
-    sort: '-timestamp',
+    sort: sort,
     startId: docs[49]._id,
-    startKey: docs[49].timestamp,
+    startKey: docs[49][sortKey],
     limit: 10
   }).exec(function (err, docs) {
     // next 10 docs ready
