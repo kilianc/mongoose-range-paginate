@@ -5,10 +5,9 @@
 [![NPM version](https://img.shields.io/npm/v/mongoose-range-paginate.svg?style=flat-square)](https://www.npmjs.com/package/mongoose-range-paginate)
 [![NPM downloads](https://img.shields.io/npm/dm/mongoose-range-paginate.svg?style=flat-square)](https://www.npmjs.com/package/mongoose-range-paginate)
 [![License](https://img.shields.io/npm/l/mongoose-range-paginate.svg?style=flat-square)](https://www.npmjs.com/package/mongoose-range-paginate)
+[![Gitter](https://img.shields.io/badge/≡_gitter-join_chat_➝-04cd7e.svg?style=flat-square)](https://gitter.im/kilianc/mongoose-range-paginate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 An utility function to work with ranged pagination, way faster than using `skip()`.
-
-[![Join the chat at https://gitter.im/kilianc/mongoose-range-paginate](https://badges.gitter.im/Join%20Chat.svg?style=flat-square)](https://gitter.im/kilianc/mongoose-range-paginate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Install
 
