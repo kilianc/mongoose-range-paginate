@@ -1,10 +1,17 @@
 {
   "name": "mongoose-range-paginate",
   "version": "0.0.4",
-  "description": "Range paginator for mongoose",
+  "description": "Fast range paginator for mongoose",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test.js --reporter=spec"
+    "test": "./node_modules/.bin/mocha test.js --reporter=spec",
+    "test:coverage": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test.js -- --reporter=spec",
+    "test:travis": "npm run test:coverage && npm run coveralls",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kilianc/mongoose-range-paginate"
   },
   "keywords": [
     "paginate",
@@ -15,6 +22,8 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^1.9.1",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
     "mocha": "^1.21.0",
     "mongoose": "^3.8.13"
   }

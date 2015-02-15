@@ -1,9 +1,14 @@
 ## MongoDb / Mongoose pagination done right
 
-[![https://travis-ci.org/kilianc/mongoose-range-paginate](https://travis-ci.org/kilianc/mongoose-range-paginate.svg?branch=master)](https://travis-ci.org/kilianc/mongoose-range-paginate)
-[![Join the chat at https://gitter.im/kilianc/mongoose-range-paginate](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kilianc/mongoose-range-paginate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Travis CI](https://img.shields.io/travis/kilianc/mongoose-range-paginate.svg?style=flat-square)](https://travis-ci.org/kilianc/mongoose-range-paginate)
+[![Coveralls](https://img.shields.io/coveralls/kilianc/mongoose-range-paginate.svg?style=flat-square)](https://coveralls.io/r/kilianc/mongoose-range-paginate)
+[![NPM version](https://img.shields.io/npm/v/mongoose-range-paginate.svg?style=flat-square)](https://www.npmjs.com/package/mongoose-range-paginate)
+[![NPM downloads](https://img.shields.io/npm/dm/mongoose-range-paginate.svg?style=flat-square)](https://www.npmjs.com/package/mongoose-range-paginate)
+[![License](https://img.shields.io/npm/l/mongoose-range-paginate.svg?style=flat-square)](https://www.npmjs.com/package/mongoose-range-paginate)
 
 An utility function to work with ranged pagination, way faster than using `skip()`.
+
+[![Join the chat at https://gitter.im/kilianc/mongoose-range-paginate](https://badges.gitter.im/Join%20Chat.svg?style=flat-square)](https://gitter.im/kilianc/mongoose-range-paginate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Install
 
