@@ -21,10 +21,10 @@ var paginate = require('mongoose-range-paginate')
 
 ...
 
-// use any field name in your model
+// use any field name in your model, in this case we sort by 'timestamp'
 var sortKey = 'timestamp'
 
-// DESC because starts with a minus
+// DESC because starts with a minus '-timestamp'
 var sort = '-' + sortKey
 
 function getQuery() {
