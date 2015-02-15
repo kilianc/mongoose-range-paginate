@@ -1,5 +1,7 @@
 ## MongoDb / Mongoose pagination done right
 
+[![Join the chat at https://gitter.im/kilianc/mongoose-range-paginate](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kilianc/mongoose-range-paginate?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 An utility function to work with ranged pagination, way faster than using `skip()`.
 
 ## Install
